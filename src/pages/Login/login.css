@@ -1,0 +1,191 @@
+.h1h {
+  color: #afb3c7;
+}
+body {
+  background-color: #3a3d6b;
+}
+
+.form {
+  width: 20rem;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.0125rem;
+  font-size: 1rem;
+}
+
+.segment {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.label1 {
+  display: block;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.label2 {
+  display: block;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  margin: 0;
+  flex: 1;
+}
+.bottomInput {
+  margin-right: 0.5rem;
+  box-shadow: inset 0.125rem 0.125rem 0.3125rem #222b57,
+    inset -0.3125rem -0.3125rem 0.625rem #222b57;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  color: #afb3c7;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+}
+.bottomInput:focus {
+  box-shadow: inset 0.0625rem 0.0625rem 0.125rem #222b57,
+    inset -0.0625rem -0.0625rem 0.125rem #222b57;
+}
+.textInput {
+  margin-right: 0.5rem;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  box-shadow: inset 0.125rem 0.125rem 0.3125rem #222b57,
+    inset -0.3125rem -0.3125rem 0.625rem #222b57;
+  width: 100%;
+  color: #afb3c7;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+}
+.textInput:focus {
+  box-shadow: inset 0.0625rem 0.0625rem 0.125rem #222b57,
+    inset -0.0625rem -0.0625rem 0.125rem #222b57;
+}
+.pwdInput {
+  margin-right: 0.5rem;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  box-shadow: inset 0.125rem 0.125rem 0.3125rem #222b57,
+    inset -0.3125rem -0.3125rem 0.625rem #222b57;
+  width: 100%;
+  color: #afb3c7;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  -webkit-appearance: none;
+}
+.pwdInput:focus {
+  box-shadow: inset 0.0625rem 0.0625rem 0.125rem #222b57,
+    inset -0.0625rem -0.0625rem 0.125rem #222b57;
+}
+.red {
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  color: #afb3c7;
+  font-weight: bold;
+  box-shadow: -0.1125rem -0.1125rem 0.625rem #222b57,
+    0.1125rem 0.1125rem 0.25rem #222b57;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  color: #d8c2ca;
+}
+.red:hover {
+  box-shadow: -0.125rem -0.125rem 0.3125rem #222b57,
+    0.125rem 0.125rem 0.3125rem #222b57;
+}
+.red:active {
+  box-shadow: inset 0.0625rem 0.0625rem 0.125rem #222b57,
+    inset -0.0625rem -0.0625rem 0.125rem #222b57;
+}
+.unit {
+  border-radius: 0.5rem;
+  color: #afb3c7;
+  font-weight: bold;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  border-radius: 20rem;
+  padding: 1rem;
+  background-color: #3a3d6b;
+  text-shadow: 0.0625rem 0.0625rem 0 #222b57;
+  box-shadow: -0.1125rem -0.1125rem 0.625rem #222b57,
+    0.1125rem 0.1125rem 0.25rem #222b57;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 0;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+}
+.unit:hover {
+  box-shadow: -0.125rem -0.125rem 0.3125rem #222b57,
+    0.125rem 0.125rem 0.3125rem #222b57;
+}
+.unir:active {
+  box-shadow: inset 0.0625rem 0.0625rem 0.125rem #222b57,
+    inset -0.0625rem -0.0625rem 0.125rem #222b57;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
