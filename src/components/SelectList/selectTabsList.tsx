@@ -1,3 +1,4 @@
+import React from 'react'
 import { CapsuleTabs, Toast } from 'antd-mobile'
 import OfficialGridList from 'components/Grid/OfficialGridList'
 import styled from '@emotion/styled'
@@ -5,8 +6,9 @@ import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { ITabs } from 'store/reducers/tabsReducers'
 import { changeName } from 'store/actions/tabs_action/action'
+import { useMemo } from 'react'
 
-export default function SelectTabsList() {
+function SelectTabsList() {
   const url = useLocation().pathname
   let selector: ITabs = useSelector((state: any) => state.tabsReducers)
   let dispatch = useDispatch()
@@ -29,6 +31,9 @@ export default function SelectTabsList() {
     dispatch(changeName(name))
     loadingState(false)
   }
+  let listName = useMemo(()=>{
+    return selector.tabsName
+}, [selector.tabsName])
 
   if (url === '/resultList') {
     return (
@@ -97,36 +102,38 @@ export default function SelectTabsList() {
           onChange={(key) => changeList(key)}
         >
           <CapsuleTabs.Tab destroyOnClose={false} title="最新" key="最新">
-            <OfficialGridListStyle type={'最新'} />
+            <OfficialGridListStyle type={listName} />
           </CapsuleTabs.Tab>
           <CapsuleTabs.Tab destroyOnClose={false} title="精选" key="精选">
-            <OfficialGridListStyle type={'精选'} />
+            <OfficialGridListStyle type={listName} />
           </CapsuleTabs.Tab>
           <CapsuleTabs.Tab destroyOnClose={false} title="小姐姐" key="小姐姐">
-            <OfficialGridListStyle type={'小姐姐'} />
+            <OfficialGridListStyle type={listName} />
           </CapsuleTabs.Tab>
           <CapsuleTabs.Tab
             destroyOnClose={false}
             title="动漫卡通"
             key="动漫卡通"
           >
-            <OfficialGridListStyle type={'动漫卡通'} />
+            <OfficialGridListStyle type={listName} />
           </CapsuleTabs.Tab>
           <CapsuleTabs.Tab
             destroyOnClose={false}
             title="生灵万物"
             key="生灵万物"
           >
-            <OfficialGridListStyle type={'生灵万物'} />
+            <OfficialGridListStyle type={listName} />
           </CapsuleTabs.Tab>
           <CapsuleTabs.Tab destroyOnClose={false} title="小清新" key="小清新">
-            <OfficialGridListStyle type={'小清新'} />
+            <OfficialGridListStyle type={listName} />
           </CapsuleTabs.Tab>
         </CapsuleTabStyle>
       </>
     )
   }
 }
+
+export default React.memo(SelectTabsList)
 
 const CapsuleTabStyle = styled(CapsuleTabs)`
   font-size: 0.875rem;
