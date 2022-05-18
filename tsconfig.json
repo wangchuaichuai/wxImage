@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
     "baseUrl": "./src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -11,16 +12,19 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
+    "jsx": "react",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "declaration": true,
+    "declaration": true
+
     // "paths": {
     //   "@components/*": ["components/*"],
     //   "@assets/*": ["assets/*"],
     //   "@pages/*": ["pages/*"]
     // }
-  }
+  },
+  "include": ["src"]
 }

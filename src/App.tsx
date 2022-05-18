@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, useRoutes, Navigate } from 'react-router-dom'
-import Home from 'pages/Home/home'
 import Index from 'components/Index/Index'
 import ToDo from 'components/ToDo/todo'
 import Msg from 'components/Msg/msg'
@@ -9,6 +8,8 @@ import ImgDetail from 'pages/Detail/ImgDetail'
 import UserDetail from 'pages/Detail/UserDetail'
 import Login from 'pages/Login/Login'
 import SearchResult from 'pages/Search/searchResult'
+import { lazy } from 'react'
+const Home = lazy( () => import('pages/Home/home'))
 
 const RouteList = () => {
   const routes = useRoutes([

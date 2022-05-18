@@ -1,14 +1,15 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 
 const webpackBaseConfig = {
   entry: path.join(__dirname, '../src/index.tsx'),
   output: {
-    path: path.join(__dirname, '../dist'),
     // 输出文件设置为名称+hash
-    filename: '[name].[fullhase:4].js',
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, '../dist'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
       components: path.join(__dirname, '../src/components'),
       pages: path.join(__dirname, '../src/pages'),
@@ -16,8 +17,10 @@ const webpackBaseConfig = {
       store: path.join(__dirname, '../src/store'),
       api: path.join(__dirname, '../src/api'),
     },
+    // modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     modules: ['node_modules'],
-    fallback: path.join(__dirname, 'node_modules'),
+    // fallback: path.resolve(__dirname, 'node_modules'),
+    // resolveLoader: { root: path.resolve(__dirname, 'node_modules') },
   },
   devServer: {
     port: 3000,
@@ -35,19 +38,28 @@ const webpackBaseConfig = {
     //   },
     // },
   },
-  resolveLoader: { root: path.join(__dirname, 'node_modules') },
+
   module: {
     rules: [
-      //   {
-      //     test: /\.js[x]/,
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      // {
+      //     test: /\.js$/,
       //     use: 'babel-loader',
-      //   },
-      //   {
-      //     test: /\.(sc|c)ss/,
-      //     use: 'style-loader',
-      //   },
+      //     exclude: [
+      //         path.join(__dirname, '../node_modules')
+      //     ]
+      // }
+      // {
+      //   test: /\.(sc|c)ss/,
+      //   use: 'style-loader',
+      // },
     ],
   },
+  plugins: [new CleanWebpackPlugin()],
 }
 
 module.exports = webpackBaseConfig

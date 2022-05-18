@@ -130,15 +130,14 @@ const EchartsComp = () => {
               encode: {
                 value: dimension,
                 tooltip: dimension,
-              },
-            },
-          })
+              }
+            }
+          });
         }
-      })
+      });
 
       myChart.setOption<echarts.EChartsOption>(option)
-    })
-
+    });
     option && myChart.setOption(option)
   }, [])
   return <Div id="echart"></Div>

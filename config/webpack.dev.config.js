@@ -1,5 +1,5 @@
-const path = require('path')
-const BaseConfig = require('./webpack.base.config')
+const BaseConfig = require('./webpack.base.config');
+const path = require('path');
 const { merge } = require('webpack-merge')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -7,7 +7,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackConfigDev = {
     mode:'development',
     devServer: {
-        contentBase: path(__dirname,'../dist'),
+        // contentBase: path(__dirname,'../dist'),webpack5中弃用
+        // static: {
+        //     directory: path.join(__dirname,'public')
+        // },
         port: 8080,
         historyApiFallback:true
     },
@@ -17,7 +20,7 @@ const webpackConfigDev = {
             inject:'body',
             title:'React APP',
             filename:'index.html',
-            template:path.join(__dirname,'../src/index.html')
+            template:path.join(__dirname,'src/index.html')
         }),
     ],
 
