@@ -64,7 +64,7 @@ const webpackBaseConfig = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      filename: 'test.html',
+      filename: 'index.html',
       inject: 'body',
       template: './public/index.html',
     }),
