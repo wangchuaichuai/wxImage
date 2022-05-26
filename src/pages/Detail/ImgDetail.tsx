@@ -1,17 +1,18 @@
 import styled from '@emotion/styled'
-import Iconfont from 'components/Iconfont/iconfont'
+import Iconfont from '../../components/Iconfont/iconfont'
 import { Button, Rate, FloatingPanel, Image } from 'antd-mobile'
 import { useLocation } from 'react-router'
 import { useDispatch } from 'react-redux'
-import * as action from 'store/actions/tabs_action/action'
+import * as action from '../../store/actions/tabs_action/action'
+import axios from 'axios'
+// import fs from 'fs'
 // import useDownloader from 'react-use-downloader'
-import DownLoadFile, { DownloadFileProps } from 'react-downloader-file'
-import { blob } from 'node:stream/consumers'
-
+import React from 'react'
+// var fs = require('fs')
 interface IState {
-  userinfo?: IInfo
-  url?: string
-  urlName?: string
+  userinfo: IInfo
+  url: string
+  urlName: string
 }
 interface IInfo {
   // 中文名
@@ -29,10 +30,35 @@ export default function ImgDetail() {
     dispatch(action.initKey())
     window.history.back()
   }
-  let local: IState = useLocation().state
+  let { state: Istate }: { state: any } = useLocation()
+  let local: IState = Istate
 
   const anchors = [50, window.innerHeight * 0.4]
 
+  const DownLoadImg = (url: string, e: React.MouseEvent) => {
+    // 获取远端图片
+    axios({
+      method: 'get',
+      url: url,
+      responseType: 'blob',
+      params: {},
+    })
+      .then((res) => {
+        console.log(res)
+        let blob = new Blob([res.data])
+        let _url = URL.createObjectURL(blob)
+        let a = document.createElement('a')
+        a.setAttribute('download', `${new Date()}_img.png`)
+        a.setAttribute('href', _url)
+        a.click()
+      })
+      .catch((err) => {
+        console.log('err出错', err)
+      })
+    // }).then(function (response) {
+    //   response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+    // })
+  }
   function getIt(name: string) {
     // https://www.shijuepi.com/uploads/allimg/200821/1-200R1141258.jpg
     let src = 'https://www.shijuepi.com/uploads/allimg/200821/1-200R1141258.jpg'
@@ -43,15 +69,21 @@ export default function ImgDetail() {
       canvas.width = image.width
       canvas.height = image.height
       let context = canvas.getContext('2d')
-      context.drawImage(image, 0, 0, image.width, image.height)
-      canvas.getContext('2d').drawImage(image, 0, 0, image.width, image.height)
-      //   const url = canvas.toDataURL('image/png')
-      canvas.toBlob((blob) => {
-        let link = document.createElement('a')
-        link.href = window.URL.createObjectURL(blob)
-        link.download = 'fileName'
-        link.click()
-      })
+      if (context !== null) {
+        context.drawImage(image, 0, 0, image.width, image.height)
+      }
+      //   if (canvas !== null) {
+      //     canvas
+      //       .getContext('2d')
+      //       .drawImage(image, 0, 0, image.width, image.height)
+      //     //   const url = canvas.toDataURL('image/png')
+      //     canvas.toBlob((blob) => {
+      //       let link = document.createElement('a')
+      //       link.href = window.URL.createObjectURL(blob)
+      //       link.download = 'fileName'
+      //       link.click()
+      //     })
+      //   }
     }
     image.src = src
   }
@@ -79,9 +111,11 @@ export default function ImgDetail() {
           <ButtonSmall>
             <Iconfont.Star />
           </ButtonSmall>
-          <a href={local.url} download>
-          <ButtonBig onClick={() => getIt(local.urlName)}>Get it !</ButtonBig>
-          </a>
+          {/* <a href={local.url} download> */}
+          <ButtonBig onClick={(e) => DownLoadImg(local.url, e)}>
+            Get it !
+          </ButtonBig>
+          {/* </a> */}
         </Card_Button_Div>
       </Card>
     </Body>

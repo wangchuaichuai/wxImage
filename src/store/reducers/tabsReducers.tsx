@@ -1,4 +1,4 @@
-import * as action_type from 'store/actions/tabs_action/action_type'
+import * as action_type from '../../store/actions/tabs_action/action_type'
 
 export interface ITabs {
   tabsName: string

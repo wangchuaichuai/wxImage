@@ -4,13 +4,13 @@ import styled from '@emotion/styled'
 import { Image } from 'antd-mobile'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 import { useNavigate } from 'react-router'
 // 热门推荐壁纸
 
 export interface IState {
   userinfo?: IInfo
-  url?: string
+  url: string
   urlName?: string
 }
 interface IInfo {

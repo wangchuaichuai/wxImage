@@ -2,12 +2,19 @@ import React from 'react'
 import { Grid, Image } from 'antd-mobile'
 import styled from '@emotion/styled'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 import { useState } from 'react'
 const image = require('../../assets/1.jfif')
 
+interface IProp {
+    title: string
+    id: number
+    color: string
+    url: string
+}
+
 export default function GridList() {
-  let [grid, setGrid] = useState([])
+  let [grid, setGrid] = useState<Array<IProp>>([])
   const clickGridItem = (title: string) => {
     console.log(`我点击了${title}`)
   }

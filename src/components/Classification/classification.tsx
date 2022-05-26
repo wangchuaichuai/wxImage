@@ -3,24 +3,29 @@ import styled from '@emotion/styled'
 import { Grid, Image } from 'antd-mobile'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
-import * as action from 'store/actions/tabs_action/action'
+import * as action from '../../store/actions/tabs_action/action'
+
+interface IProp {
+    title: string
+    cover?:string
+}
 
 export default function Classification() {
   let navigate = useNavigate()
   let dispatch = useDispatch()
-  let [gridList,setGridList] = useState([])
-  useEffect( () => {
-      ;(async function (){
-        const { data:res } = await api.getMore()
-        if (res.code === 200){
-            setGridList(res.data)
-        }
-      })()
+  let [gridList, setGridList] = useState<Array<IProp>>([])
+  useEffect(() => {
+    ;(async function () {
+      const { data: res } = await api.getMore()
+      if (res.code === 200) {
+        setGridList(res.data)
+      }
+    })()
   }, [])
-  function toResultList(name:string) {
+  function toResultList(name: string) {
     dispatch(action.changeName(name))
     dispatch(action.initKey())
     navigate('/resultList')

@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 import { Button } from 'antd-mobile'
-import Navbar from 'components/Nav/Navbar'
-import SearchComponent from 'components/Search/SearchComponent'
+import Navbar from '../../components/Nav/Navbar'
+import SearchComponent from '../../components/Search/SearchComponent'
+import React from 'react'
 
 
 export default function searchPage() {

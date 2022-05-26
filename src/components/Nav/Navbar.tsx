@@ -5,9 +5,9 @@ import SearchComponent from '../Search/SearchComponent'
 import { TravelOutline } from 'antd-mobile-icons'
 import { useLocation } from 'react-router'
 import styled from '@emotion/styled'
-import Iconfont from 'components/Iconfont/iconfont'
+import Iconfont from '../../components/Iconfont/iconfont'
 import { useDispatch, useSelector } from 'react-redux'
-import * as action from 'store/actions/tabs_action/action'
+import * as action from '../../store/actions/tabs_action/action'
 
 export default function Navbar() {
   let dispatch = useDispatch()

@@ -1,11 +1,11 @@
 import React from 'react'
 import { CapsuleTabs, Toast } from 'antd-mobile'
-import OfficialGridList from 'components/Grid/OfficialGridList'
+import OfficialGridList from '../../components/Grid/OfficialGridList'
 import styled from '@emotion/styled'
 import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { ITabs } from 'store/reducers/tabsReducers'
-import { changeName } from 'store/actions/tabs_action/action'
+import { ITabs } from '../../store/reducers/tabsReducers'
+import { changeName } from '../../store/actions/tabs_action/action'
 import { useMemo } from 'react'
 
 function SelectTabsList() {

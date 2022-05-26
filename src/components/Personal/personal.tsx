@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Bubble from 'components/Bubble/bubble'
-import PersonalList from 'components/PersonalList/personalList'
+import Bubble from '../../components/Bubble/bubble'
+import PersonalList from '../../components/PersonalList/personalList'
 export default function Personal() {
   return (
     <>

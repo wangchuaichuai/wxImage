@@ -1,26 +1,16 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const webpackBaseConfig = {
-  entry: path.join(__dirname, '../src/index.tsx'),
+  entry: './src/index.tsx',
   output: {
-    // 输出文件设置为名称+hash
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, '../dist'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
-    alias: {
-      components: path.join(__dirname, '../src/components'),
-      pages: path.join(__dirname, '../src/pages'),
-      assets: path.join(__dirname, '../src/assets'),
-      store: path.join(__dirname, '../src/store'),
-      api: path.join(__dirname, '../src/api'),
-    },
-    // modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     modules: ['node_modules'],
-    // fallback: path.resolve(__dirname, 'node_modules'),
-    // resolveLoader: { root: path.resolve(__dirname, 'node_modules') },
   },
   devServer: {
     port: 3000,
@@ -38,28 +28,47 @@ const webpackBaseConfig = {
     //   },
     // },
   },
-
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        test: /\.css$/,
+        use: [
+            {
+                loader:'style-loader'
+            },
+            {
+                loader: 'css-loader'
+            }
+        ],
       },
-      // {
-      //     test: /\.js$/,
-      //     use: 'babel-loader',
-      //     exclude: [
-      //         path.join(__dirname, '../node_modules')
-      //     ]
-      // }
-      // {
-      //   test: /\.(sc|c)ss/,
-      //   use: 'style-loader',
-      // },
+      {
+          test: /\.less$/,
+          use: [
+            'less-loader', 'style-loader', 'css-loader'
+          ]
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(png|svg|jepg|jfif)$/,
+        use: 'url-loader',
+      },
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'test.html',
+      inject: 'body',
+      template: './public/index.html',
+    }),
+  ],
 }
 
 module.exports = webpackBaseConfig

@@ -1,26 +1,32 @@
 import { BrowserRouter as Router, useRoutes, Navigate } from 'react-router-dom'
-import Index from 'components/Index/Index'
-import ToDo from 'components/ToDo/todo'
-import Msg from 'components/Msg/msg'
-import Personal from 'components/Personal/personal'
-import SearchPage from 'pages/Search/searchPage'
-import ImgDetail from 'pages/Detail/ImgDetail'
-import UserDetail from 'pages/Detail/UserDetail'
-import Login from 'pages/Login/Login'
-import SearchResult from 'pages/Search/searchResult'
-import { lazy } from 'react'
-const Home = lazy( () => import('pages/Home/home'))
+import { lazy, Suspense } from 'react'
+import React from 'react'
+
+import Index from '../src/components/Index/Index'
+import ToDo from '../src/components/ToDo/todo'
+import Msg from '../src/components/Msg/msg'
+import Personal from '../src/components/Personal/personal'
+import SearchPage from '../src/pages/Search/searchPage'
+import ImgDetail from '../src/pages/Detail/ImgDetail'
+import UserDetail from '../src/pages/Detail/UserDetail'
+import Login from '../src/pages/Login/Login'
+import SearchResult from '../src/pages/Search/searchResult'
+const Home = lazy(() => import('../src/pages/Home/home'))
 
 const RouteList = () => {
   const routes = useRoutes([
     //   index首页
     {
       path: '/',
-      element: <Home />,
+      element: (
+        <Suspense fallback={<div>loading</div>}>
+          <Home />
+        </Suspense>
+      ),
       children: [
         {
           path: '',
-          
+
           element: <Index />,
         },
         {

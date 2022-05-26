@@ -3,14 +3,19 @@ import styled from '@emotion/styled'
 import { Empty, Image, Modal } from 'antd-mobile'
 import { QuestionCircleOutline } from 'antd-mobile-icons'
 import { useNavigate } from 'react-router'
-import Bubble from 'components/Bubble/bubble'
+import Bubble from '../../components/Bubble/bubble'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 import { useState } from 'react'
 
+interface IProp {
+    title: string
+    url: string
+    cover: string
+}
 export default function Msg() {
   let navigate = useNavigate()
-  let [arr, setArr] = useState([])
+  let [arr, setArr] = useState<Array<IProp>>([])
   useEffect(() => {
     ;(async function () {
       const { data: res } = await api.getTogether()

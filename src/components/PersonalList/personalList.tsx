@@ -1,16 +1,17 @@
 import { Card, Grid, Image, Modal } from 'antd-mobile'
 import styled from '@emotion/styled'
-import Iconfont from 'components/Iconfont/iconfont'
+import Iconfont from '../../components/Iconfont/iconfont'
 import { useLocation, useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { IProps, IList, ICollect } from 'pages/Detail/UserDetail'
+import { IProps, IList, ICollect } from '../../pages/Detail/UserDetail'
+import React from 'react'
 
-export default function PersonalList(props) {
+export default function PersonalList(props: any) {
   let arr: IProps = props.list
   const selector = useSelector((state: any) => state.userReducers)
   const url = useLocation().pathname
   const navigate = useNavigate()
-  function toDetail(list:IList) {
+  function toDetail(list: IList) {
     navigate('/detail', {
       state: {
         url: list.url,
@@ -59,7 +60,7 @@ export default function PersonalList(props) {
           </div>
         </CollectStyle>
         <GridStyle columns={2} gap={0}>
-          {selector.userInfo.collect.map((item: ICollect, index) => (
+          {selector.userInfo.collect.map((item: ICollect, index: string) => (
             <Grid.Item key={index}>
               <GridList>
                 <FillImg

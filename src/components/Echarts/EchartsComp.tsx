@@ -3,12 +3,11 @@ import * as echarts from 'echarts'
 import React, { useEffect } from 'react'
 
 type EChartsOption = echarts.EChartsOption
-
+var option: EChartsOption
 const EchartsComp = () => {
   useEffect(() => {
-    let chartDom = document.getElementById('echart')!
-    let myChart = echarts.init(chartDom, 'dark')
-    let option: EChartsOption
+    var chartDom = document.getElementById('echart')!
+    var myChart = echarts.init(chartDom, 'dark')
     setTimeout(function () {
       option = {
         legend: {},
@@ -130,14 +129,14 @@ const EchartsComp = () => {
               encode: {
                 value: dimension,
                 tooltip: dimension,
-              }
-            }
-          });
+              },
+            },
+          })
         }
-      });
+      })
 
       myChart.setOption<echarts.EChartsOption>(option)
-    });
+    })
     option && myChart.setOption(option)
   }, [])
   return <Div id="echart"></Div>

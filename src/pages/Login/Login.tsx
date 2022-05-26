@@ -7,9 +7,10 @@ import {
 import { Modal } from 'antd-mobile'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
-import api from 'api/getData'
-import * as action from 'store/actions/user_action/action'
+import api from '../../api/getData'
+import * as action from '../../store/actions/user_action/action'
 import { useEffect } from 'react'
+import React from 'react'
 require('./login.css')
 
 export default function Login() {

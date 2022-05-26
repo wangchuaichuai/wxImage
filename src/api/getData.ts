@@ -23,7 +23,7 @@ function getMore () {
 function getTogether () {
     return api.get(`/together`)
 }
-function getUser (id:number | string) {
+function getUser (id:string | unknown) {
     return api.get(`/getUser/${id}`)
 }
 function getNewList(name:number | string, id:number | string) {

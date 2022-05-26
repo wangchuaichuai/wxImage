@@ -3,7 +3,7 @@ import { Grid, Button } from 'antd-mobile'
 import styled from '@emotion/styled'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 
 export default function BiaoHotGrid() {
   let [tabs, setTabs] = useState([])

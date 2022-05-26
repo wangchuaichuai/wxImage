@@ -2,20 +2,20 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Swiper from '../Swiper/swiper'
 import GridList from '../Grid/GridList'
-import Hot from 'components/Hot/hot'
-import Official from 'components/Official/official'
-import SelectTabsList from 'components/SelectList/selectTabsList'
+import Hot from '../../components/Hot/hot'
+import Official from '../../components/Official/official'
+import SelectTabsList from '../../components/SelectList/selectTabsList'
 import { Modal } from 'antd-mobile'
-import Bubble from 'components/Bubble/bubble'
+import Bubble from '../../components/Bubble/bubble'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
-import * as action from 'store/actions/user_action/action'
+import * as action from '../../store/actions/user_action/action'
 
 export default function Index() {
   const dispatch = useDispatch()
   if (sessionStorage.getItem('data')) {
-    let local = JSON.parse(sessionStorage.getItem('data'))
-    console.log(local)
+    let str:any = sessionStorage.getItem('data')
+    let local = JSON.parse(str)
     dispatch(action.Login(local.uName, local.uPwd, local.token, local.userInfo))
   }
   const login = useSelector((state: any) => state.userReducers.login)

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Badge, TabBar } from 'antd-mobile'
 import styled from '@emotion/styled'
 
-import Inconfont from 'components/Iconfont/iconfont'
+import Inconfont from '../../components/Iconfont/iconfont'
 import { useNavigate } from 'react-router-dom'
 
 const Tab = () => {

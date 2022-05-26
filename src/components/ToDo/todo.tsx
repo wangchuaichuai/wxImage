@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import BangList from 'components/Grid/BangList'
-import HotSoaring from 'components/Hot/hotSoaring'
-import Classification from 'components/Classification/classification'
-import Bubble from 'components/Bubble/bubble'
-import EchartsComp from 'components/Echarts/EchartsComp'
+import BangList from '../../components/Grid/BangList'
+import HotSoaring from '../../components/Hot/hotSoaring'
+import Classification from '../../components/Classification/classification'
+import Bubble from '../../components/Bubble/bubble'
+import EchartsComp from '../../components/Echarts/EchartsComp'
 
 export default function Todo() {
   return (

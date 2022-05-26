@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import BiaoHotGrid from 'components/Grid/BiaoHotGrid'
+import BiaoHotGrid from '../../components/Grid/BiaoHotGrid'
 
 export default function HotSoaring() {
   return (

@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react'
 import { Swiper, Image } from 'antd-mobile'
 import styled from '@emotion/styled'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 
 export default function SwiperComponent() {
   let [swipe, setSwipe] = useState([])

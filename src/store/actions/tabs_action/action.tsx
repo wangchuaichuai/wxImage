@@ -9,7 +9,7 @@ export const changeName = (name: string) => {
   }
 }
 
-export const changeKey = (key) => {
+export const changeKey = (key: number) => {
   return {
     type: action_type.CHANGE_KEY,
     payload: {

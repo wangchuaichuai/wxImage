@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
-import Bubble from 'components/Bubble/bubble'
-import PersonalList from 'components/PersonalList/personalList'
+import Bubble from '../../components/Bubble/bubble'
+import PersonalList from '../../components/PersonalList/personalList'
 import { Image } from 'antd-mobile'
-import Iconfont from 'components/Iconfont/iconfont'
+import Iconfont from '../../components/Iconfont/iconfont'
 import { useParams } from 'react-router'
 import { useEffect } from 'react'
-import api from 'api/getData'
+import api from '../../api/getData'
 import { useState } from 'react'
+import React from 'react'
 
 export interface IProps {
   userName: string
@@ -15,6 +16,7 @@ export interface IProps {
 interface IUserInfo {
   label: string | number
   like: string | number
+  id: string | number
   userP: string
   userCover: string
   comment: string | number
@@ -50,6 +52,7 @@ export default function UserDetail() {
       label: '',
       like: '',
       userP: '',
+      id: '',
       userCover: '',
       comment: '',
       collect: [
